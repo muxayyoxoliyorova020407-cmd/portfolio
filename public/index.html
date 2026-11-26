@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mening portfolioim</title>
+<style>
+:root{--bg:#f2f7ff;--surface:#fff;--text:#1b1d2a;--muted:#5d6176;--accent:#1e6fe8;--accent2:#06b6d4;--line:#e4e6f0;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b1220;--surface:#131c2f;--text:#eaf1ff;--muted:#9aa9c7;--accent:#5b9bff;--accent2:#22d3ee;--line:#272b3b;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0b1220;--surface:#131c2f;--text:#eaf1ff;--muted:#9aa9c7;--accent:#5b9bff;--accent2:#22d3ee;--line:#272b3b;color-scheme:dark}
+html{scroll-behavior:smooth;scroll-padding-top:calc(70px + env(safe-area-inset-top,0px))}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.6}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--surface);z-index:10}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--surface);border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;padding:12px 5%;gap:12px;flex-wrap:wrap}
+.logo{font-weight:800;color:var(--accent)}
+nav ul{display:flex;gap:6px;list-style:none;margin:0;padding:0;flex-wrap:wrap}
+nav a{color:var(--text);text-decoration:none;padding:6px 12px;border-radius:999px;font-size:.95rem}
+nav a:hover,nav a.on{background:var(--accent);color:#fff}
+section{max-width:1000px;margin:0 auto;padding:70px 5%}
+h2{font-size:1.9rem;margin:0 0 24px}
+h2::after{content:"";display:block;width:50px;height:4px;border-radius:4px;background:linear-gradient(90deg,var(--accent),var(--accent2));margin-top:8px}
+.hero{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center;min-height:80vh}
+.hero h1{font-size:clamp(2rem,5vw,3.2rem);line-height:1.15;margin:.2em 0}
+.hero h1 span{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.muted{color:var(--muted)}
+.btn{display:inline-block;padding:11px 22px;border-radius:12px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600;border:0;cursor:pointer;font-size:1rem;transition:transform .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn.alt{background:transparent;color:var(--accent);border:2px solid var(--accent);margin-left:8px}
+.art{position:relative;aspect-ratio:1;max-width:340px;margin:auto;width:100%}
+.blob{position:absolute;inset:8%;background:linear-gradient(135deg,var(--accent),var(--accent2));animation:morph 8s ease-in-out infinite,float 5s ease-in-out infinite;display:grid;place-items:center;overflow:hidden}
+.blob img{width:100%;height:100%;object-fit:cover}
+.blob b{font-size:4rem;color:#fff}
+.ring{position:absolute;inset:0;border:2px dashed var(--accent);border-radius:50%;animation:spin 20s linear infinite;opacity:.6}
+.dot{position:absolute;width:16px;height:16px;border-radius:50%;background:var(--accent2);top:6%;right:14%;animation:float 3s ease-in-out infinite}
+@keyframes morph{0%,100%{border-radius:60% 40% 30% 70%/60% 30% 70% 40%}50%{border-radius:30% 60% 70% 40%/50% 60% 30% 60%}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.card h3{margin:0 0 6px}
+.tag{display:inline-block;font-size:.8rem;padding:2px 10px;border-radius:999px;background:var(--bg);border:1px solid var(--line);margin:8px 6px 0 0;color:var(--muted)}
+.tl{border-left:3px solid var(--accent);padding-left:22px;display:grid;gap:20px}
+.tl .card{position:relative}
+.tl .card::before{content:"";position:absolute;left:-33px;top:26px;width:15px;height:15px;border-radius:50%;background:var(--accent2);border:3px solid var(--bg)}
+form{display:grid;gap:14px;max-width:520px}
+input,textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--text);font:inherit}
+input:focus,textarea:focus{outline:2px solid var(--accent)}
+#msg{min-height:1.4em;font-size:.95rem}
+.reveal{opacity:0;transform:translateY(24px);transition:.7s}
+.reveal.show{opacity:1;transform:none}
+footer{text-align:center;padding:30px;color:var(--muted);border-top:1px solid var(--line)}
+@media(max-width:760px){.hero{grid-template-columns:1fr;text-align:center;min-height:auto}.btn.alt{margin:8px 0 0}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="logo">Muxayyo</div>
+  <ul>
+    <li><a href="#kirish" class="on">Kirish</a></li>
+    <li><a href="#talim">O’qigan joyim</a></li>
+    <li><a href="#ishlar">Qilgan ishlarim</a></li>
+    <li><a href="#boglanish">Bog’lanish</a></li>
+  </ul>
+</nav>
+
+<section id="kirish">
+  <div class="hero">
+    <div>
+      <p class="muted">Assalomu alaykum, men</p>
+      <h1><span>Xoliyorova Muxayyo</span><br>Pedagogika talabasi</h1>
+      <p class="muted">Termiz davlat pedagogika instituti talabasiman, yo’nalishim — amaliy matematika. Matematikani chuqur o’rganish va uni o’quvchilarga sodda, qiziqarli tarzda yetkazish menga yoqadi.</p>
+      <a class="btn" href="#ishlar">Ishlarimni ko’rish</a>
+      <a class="btn alt" href="#boglanish">Bog’lanish</a>
+    </div>
+    <div class="art">
+      <div class="ring"></div><div class="dot"></div>
+      <div class="blob"><b>XM</b></div>
+    </div>
+  </div>
+</section>
+
+<section id="talim">
+  <h2>O’qigan joyim</h2>
+  <div class="tl">
+    <div class="card reveal"><h3>Termiz davlat pedagogika instituti</h3><div class="muted">Talaba · Amaliy matematika yo’nalishi</div><p>Matematika fanlari va ularni o’qitish metodikasini o’rganmoqdaman.</p></div>
+    
+  </div>
+</section>
+
+<section id="ishlar">
+  <h2>Qilgan ishlarim</h2>
+  <div class="grid">
+    <div class="card reveal"><h3>⚽ Futbol</h3><p class="muted">Rektor kubogi tanlovlarida futbol bo’yicha 3-o’rinni egalladim.</p><span class="tag">Rektor kubogi</span><span class="tag">3-o’rin</span></div>
+    <div class="card reveal"><h3>🏐 Voleybol</h3><p class="muted">Rektor kubogi tanlovlarida voleybol bo’yicha 2-o’rinni egalladim.</p><span class="tag">Rektor kubogi</span><span class="tag">2-o’rin</span></div>
+    
+  </div>
+</section>
+
+<section id="boglanish">
+  <h2>Bog’lanish</h2>
+  <p class="muted">Xabaringiz to’g’ridan-to’g’ri menga Telegram orqali keladi.</p>
+  <form id="f">
+    <input id="n" placeholder="Ismingiz" required>
+    <input id="c" placeholder="Telefon yoki Telegram username" required>
+    <textarea id="t" rows="5" placeholder="Xabaringiz" required></textarea>
+    <button class="btn" type="submit">Yuborish</button>
+    <div id="msg" class="muted"></div>
+  </form>
+</section>
+
+<footer>© 2026 Xoliyorova Muxayyo · @Muxayyoxon_007</footer>
+
+<script>
+// Forma shu serverga yuboriladi (server.js token bilan Telegramga jo’natadi):
+var ENDPOINT = "/api/contact";
+var TG_USERNAME = "Muxayyoxon_007";
+document.getElementById("f").addEventListener("submit",function(e){
+  e.preventDefault();
+  var m=document.getElementById("msg"),d={name:n.value,contact:c.value,text:t.value};
+  if(!ENDPOINT){m.textContent="Telegram bot hali ulanmagan. Hozircha to’g’ridan-to’g’ri Telegramga o’tilmoqda…";window.open("https://t.me/"+TG_USERNAME,"_blank");return}
+  m.textContent="Yuborilmoqda…";
+  fetch(ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(d)})
+   .then(function(r){if(!r.ok)throw 0;m.textContent="Rahmat! Xabaringiz yuborildi.";e.target.reset()})
+   .catch(function(){m.textContent="Xatolik yuz berdi, keyinroq urinib ko’ring."});
+});
+var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting)x.target.classList.add("show")})},{threshold:.15});
+document.querySelectorAll(".reveal").forEach(function(el){io.observe(el)});
+var links=[].slice.call(document.querySelectorAll("nav a"));
+var so=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){links.forEach(function(l){l.classList.toggle("on",l.getAttribute("href")==="#"+x.target.id)})}})},{rootMargin:"-40% 0px -55% 0px"});
+document.querySelectorAll("section").forEach(function(s){so.observe(s)});
+</script>
+</body>
+</html>
